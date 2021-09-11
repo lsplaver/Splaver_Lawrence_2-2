@@ -9,14 +9,16 @@ namespace TipCalculator.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             ViewBag.Tip15 = 0;
             ViewBag.Tip20 = 0;
-            ViewBag.Tup25 = 0;
+            ViewBag.Tip25 = 0;
             return View();
         }
 
+        [HttpPost]
         public IActionResult Index(TipCalculatorModel model)
         {
             if (ModelState.IsValid)
@@ -29,9 +31,9 @@ namespace TipCalculator.Controllers
             {
                 ViewBag.Tip15 = 0;
                 ViewBag.Tip20 = 0;
-                ViewBag.Tup25 = 0;
+                ViewBag.Tip25 = 0;
             }
-            return View();
+            return View(model);
         }
     }
 }
